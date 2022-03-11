@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csu.dao.SqlMapper">
+<!--    <select id="selectTest" resultType="User">-->
+<!--        select * from db_usr-->
+<!--    </select>-->
+<!--    <insert id="addUser" >-->
+<!--        insert into ASD(usr,password)-->
+<!--        values(#{usr},#{password})-->
+<!--    </insert>-->
+<!--    <insert id="addDiease" >-->
+<!--        insert into [Diease] ([name],[desc])-->
+<!--         values (#{name},#{desc})-->
+<!--    </insert>-->
+    <resultMap id="BasicInforResult" type="BasicInfor">
+        <result column="MR_No" property="mrNo"/>
+        <result column="P_Name" property="pName"/>
+        <result column="ID_Card_No" property="idCardNo"/>
+        <result column="sex" property="sex"/>
+        <result column="age" property="age"/>
+        <result column="Ph_No" property="phNo"/>
+        <result column="nation" property="nation"/>
+        <result column="address" property="address"/>
+        <result column="marriage" property="marriage"/>
+    </resultMap>
+    <select id="selectAllBasicInfor" resultMap="BasicInforResult">
+        select * from Basic_Infor
+    </select>
+    <resultMap id="CheckBloodResult" type="CheckBlood">
+        <result property="mrNo" column="MR_No"/>
+        <result property="pName" column="P_Name"/>
+        <result property="whiteBloodCellCount" column="White_Blood_Cell_Count"/>
+        <result property="lymphocyteCount" column="Lymphocyte_Count"/>
+        <result property="hemoglobinCount" column="Hemoglobin_Count"/>
+        <result property="bloodPlateletCount" column="Blood_Platelet_Count"/>
+    </resultMap>
+    <select id="selectAllCheckBlood" resultMap="CheckBloodResult">
+        select * from Check_Blood
+    </select>
+    <resultMap id="CheckEyeResult" type="CheckEye">
+        <result property="mrNo" column="MR_No"/>
+        <result property="pName" column="P_Name"/>
+        <result property="leftVision" column="Left_Vision"/>
+        <result property="rightVision" column="Right_Vision"/>
+        <result property="leftCorVision" column="Left_Cor_Vision"/>
+        <result property="rightCorVision" column="Right_Cor_Vision"/>
+        <result property="iop" column="IOP"/>
+    </resultMap>
+    <select id="selectAllCheckEye" resultMap="CheckEyeResult">
+        select * from Check_Eye
+    </select>
+    <resultMap id="CheckPressureResult" type="CheckPressure">
+        <result property="mrNo" column="MR_No"/>
+        <result property="pName" column="P_Name"/>
+        <result property="highPressure" column="High_Pressure"/>
+        <result property="lowPressure" column="Low_Pressure"/>
+        <result property="pulse" column="Pulse"/>
+    </resultMap>
+    <select id="selectAllCheckPressure" resultMap="CheckPressureResult">
+        select * from Check_Pressure
+    </select>
+    <resultMap id="CheckProjInforResult" type="CheckProjInfor">
+        <result property="mrNo" column="MR_No"/>
+        <result property="pName" column="P_Name"/>
+        <result property="projNo" column="proj_No"/>
+        <result property="docNo" column="Doc_No"/>
+        <result property="docName" column="Doc_Name"/>
+        <result property="projName" column="Proj_Name"/>
+        <result property="checkTime" column="Check_Time"/>
+        <result property="checkCost" column="Check_cost"/>
+    </resultMap>
+    <select id="selectAllCheckProjInfor" resultMap="CheckProjInforResult">
+        select * from CheckProj_Infor
+    </select>
+    <resultMap id="HospitalInformResult" type="HospitalInform">
+        <result property="mrNo" column="MR_No"/>
+        <result property="pName" column="P_Name"/>
+        <result property="inHospTime" column="InHosp_Time"/>
+        <result property="departmentName" column="Department_Name"/>
+        <result property="docNo" column="Doc_No"/>
+        <result property="docName" column="Doc_Name"/>
+        <result property="bedNo" column="Bed_No"/>
+        <result property="treatmentRecor" column="Treatment_Recor"/>
+        <result property="outHospTime" column="OutHosp_Time"/>
+    </resultMap>
+    <select id="selectAllHospitalInform" resultMap="HospitalInformResult">
+        select * from Hospital_Inform
+    </select>
+    <resultMap id="ImageInforResult" type="ImageInfor">
+        <result property="mrNo" column="MR_No"/>
+        <result property="pName" column="P_Name"/>
+        <result property="departmentName" column="Department_Name"/>
+        <result property="imageId" column="Image_ID"/>
+        <result property="imageType" column="Image_Type"/>
+        <result property="imageTime" column="Image_Time"/>
+        <result property="imagePart" column="Image_Part"/>
+    </resultMap>
+    <select id="selectAllImageInfor" resultMap="ImageInforResult">
+        select * from Image_Infor
+    </select>
+    <resultMap id="ImageScreeningInforResult" type="ImageScreeningInfor">
+        <result property="mrNo" column="MR_No"/>
+        <result property="pName" column="P_Name"/>
+        <result property="imageId" column="Image_ID"/>
+        <result property="imageType" column="Image_Type"/>
+        <result property="imagePart" column="Image_Part"/>
+        <result property="algorithmName" column="Algorithm_Name"/>
+        <result property="screeningTaskName" column="ScreeningTask_Time"/>
+        <result property="screeningResult" column="Screening_Result"/>
+    </resultMap>
+    <select id="selectAllImageScreeningInfor" resultMap="ImageScreeningInforResult">
+        select * from ImageScreening_Infor
+    </select>
+    <resultMap id="RegistrationInforResult" type="RegistrationInfor">
+        <result property="mrNo" column="MR_No"/>
+        <result property="pName" column="P_Name"/>
+        <result property="regNo" column="Reg_No"/>
+        <result property="idCardNo" column="ID_Card_No"/>
+        <result property="departmentName" column="Department_Name"/>
+        <result property="regTime" column="Reg_Time"/>
+        <result property="docNo" column="Doc_No"/>
+        <result property="docName" column="Doc_Name"/>
+        <result property="painPart" column="Pain_Part"/>
+        <result property="regResult" column="Reg_Result"/>
+        <result property="drugInfor" column="Drug_Infor"/>
+        <result property="inHosp" column="In_Hosp"/>
+        <result property="reCheck" column="Re_Check"/>
+    </resultMap>
+    <select id="selectAllRegistrationInfor" resultMap="RegistrationInforResult">
+        select * from Registration_Infor
+    </select>
+    
+    <select id="selectBasicInforById" resultMap="BasicInforResult">
+        select * from Basic_Infor where MR_No=#{mrNo}
+    </select>
+    <select id="selectCheckBloodById" resultMap="CheckBloodResult">
+        select * from Check_Blood where MR_No=#{mrNo}
+    </select>
+    <select id="selectCheckEyeById" resultMap="CheckEyeResult">
+        select * from Check_Eye where MR_No=#{mrNo}
+    </select>
+    <select id="selectCheckPressureById" resultMap="CheckPressureResult">
+        select * from Check_Pressure where MR_No=#{mrNo}
+    </select>
+    <select id="selectCheckProjInforById" resultMap="CheckProjInforResult">
+        select * from CheckProj_Infor where MR_No=#{mrNo}
+    </select>
+    <select id="selectHospitalInformById" resultMap="HospitalInformResult">
+        select * from Hospital_Inform where MR_No=#{mrNo}
+    </select>
+    <select id="selectImageInforById" resultMap="ImageInforResult">
+        select * from Image_Infor where MR_No=#{mrNo}
+    </select>
+    <select id="selectImageScreeningInforById" resultMap="ImageScreeningInforResult">
+        select * from ImageScreening_Infor where MR_No=#{mrNo}
+    </select>
+    <select id="selectRegistrationInforById" resultMap="RegistrationInforResult">
+        select * from Registration_Infor where MR_No=#{mrNo}
+    </select>
+
+    <update id="updateBasicInforById" parameterType="BasicInfor">
+        update Basic_Infor
+        <set>
+<!--            <if test="MR_No !=null">MR_No=#{mrNo},</if>-->
+            <if test="pName !=null">P_Name=#{pName},</if>
+            <if test="idCardNo !=null">ID_Card_No=#{idCardNo},</if>
+            <if test="sex !=null">sex=#{sex},</if>
+            <if test="age !=null">age=#{age},</if>
+            <if test="phNo !=null">Ph_No=#{phNo},</if>
+            <if test="nation !=null">nation=#{nation},</if>
+            <if test="address !=null">address=#{address},</if>
+            <if test="marriage !=null">marriage=#{marriage}</if>
+        </set>
+        where MR_No=#{mrNo}
+    </update>
+    <update id="updateCheckBloodById" parameterType="CheckBlood">
+        update Check_Blood
+        <set>
+<!--            <if test="MR_No !=null">MR_No=#{mrNo},</if>-->
+            <if test="pName !=null">P_Name=#{pName},</if>
+            <if test="whiteBloodCellCount !=null">White_Blood_Cell_Count=#{whiteBloodCellCount},</if>
+            <if test="lymphocyteCount !=null">Lymphocyte_Count=#{lymphocyteCount},</if>
+            <if test="hemoglobinCount !=null">Hemoglobin_Count=#{hemoglobinCount},</if>
+            <if test="bloodPlateletCount !=null">Blood_Platelet_Count=#{bloodPlateletCount}</if>
+        </set>
+        where MR_No=#{mrNo}
+    </update>
+    <update id="updateCheckEyeById" parameterType="CheckEye">
+        update Check_Eye
+        <set>
+<!--            <if test="MR_No !=null">MR_No=#{mrNo},</if>-->
+            <if test="pName !=null">P_Name=#{pName},</if>
+            <if test="leftVision !=null">Left_Vision=#{leftVision},</if>
+            <if test="rightVision !=null">Right_Vision=#{rightVision},</if>
+            <if test="leftCorVision !=null">Left_Cor_Vision=#{leftCorVision},</if>
+            <if test="rightCorVision !=null">Right_Cor_Vision=#{rightCorVision},</if>
+            <if test="iop !=null">IOP=#{iop}</if>
+        </set>
+        where MR_NO=#{mrNo}
+    </update>
+    <update id="updateCheckPressureById" parameterType="CheckPressure">
+        update Check_Pressure
+        <set>
+<!--            <if test="MR_No !=null">MR_No=#{mrNo},</if>-->
+            <if test="pName !=null" >P_Name=#{pName},</if>
+            <if test="highPressure !=null">High_Pressure=#{highPressure},</if>
+            <if test="lowPressure !=null">Low_Pressure=#{lowPressure},</if>
+            <if test="pulse !=null">Pulse=#{pulse}</if>
+        </set>
+        where MR_No=#{mrNo}
+    </update>
+    <update id="updateCheckProjInforById" parameterType="CheckProjInfor">
+        update CheckProj_Infor
+        <set>
+<!--            <if test="MR_No !=null">MR_No=#{mrNo},</if>-->
+            <if test="pName !=null">P_Name=#{pName},</if>
+<!--            <if test="projNo !=null">Proj_No=#{projNo},</if>-->
+            <if test="docNo !=null">Doc_No=#{docNo},</if>
+            <if test="docName !=null">Doc_Name=#{docName},</if>
+            <if test="projName !=null">Proj_Name=#{projName},</if>
+            <if test="checkTime !=null">Check_Time=#{checkTime},</if>
+            <if test="checkCost !=null">Check_cost=#{checkCost}</if>
+        </set>
+        where Proj_No=#{projNo}
+<!--        where MR_No=#{mrNo}-->
+    </update>
+    <update id="updateHospitalInformById" parameterType="HospitalInform">
+        update Hospital_Inform
+        <set>
+<!--            <if test="MR_No !=null">MR_No=#{mrNo},</if>-->
+            <if test="pName !=null">P_Name=#{pName},</if>
+            <if test="inHospTime !=null">InHosp_Time=#{inHospTime},</if>
+            <if test="departmentName !=null">Department_Name=#{departmentName},</if>
+            <if test="docNo !=null">Doc_No=#{docNo},</if>
+            <if test="docName !=null">Doc_Name=#{docName},</if>
+            <if test="bedNo !=null">Bed_No=#{bedNo},</if>
+            <if test="treatmentRecor !=null">Treatment_Recor=#{treatmentRecor},</if>
+            <if test="outHospTime !=null">OutHosp_Time=#{outHospTime}</if>
+        </set>
+        where MR_No=#{mrNo}
+    </update>
+    <update id="updateImageInforById" parameterType="ImageInfor">
+        upate Image_Infor
+        <set>
+<!--            <if test="MR_No !=null">MR_No=#{mrNo},</if>-->
+            <if test="pName !=null">P_Name=#{pName},</if>
+            <if test="departmentName !=null">Department_Name=#{departmentName},</if>
+            <if test="imageId !=null">Image_ID=#{imageId},</if>
+            <if test="imageType !=null">Image_Type=#{imageType},</if>
+            <if test="imageTime !=null">Image_Time=#{imageTime},</if>
+            <if test="imagePart !=null">Image_Part=#{imagePart}</if>
+        </set>
+        where MR_No=#{mrNo}
+    </update>
+    <update id="updateImageScreeningInforById" parameterType="ImageScreeningInfor">
+        update ImageScreening_Infor
+        <set>
+<!--            <if test="MR_No !=null">MR_No=#{mrNo},</if>-->
+            <if test="pName !=null">P_Name=#{pName},</if>
+            <if test="imageId !=null">Image_ID=#{imageId},</if>
+            <if test="imageType !=null">Image_Type=#{imageType},</if>
+            <if test="imagePart !=null">Image_Part=#{imagePart},</if>
+            <if test="algorithmName !=null">Algorithm_Name=#{algorithmName},</if>
+            <if test="screeningTaskName !=null">ScreeningTask_Name=#{screeningTaskName},</if>
+            <if test="screeningResult !=null">Screening_Result=#{screeningResult}</if>
+        </set>
+        where MR_No=#{mrNo}
+    </update>
+    <update id="updateRegistrationInforById" parameterType="RegistrationInfor">
+        update Registration_Infor
+        <set>
+<!--            <if test="MR_No !=null">MR_No=#{mrNo},</if>-->
+            <if test="pName !=null">P_Name=#{pName},</if>
+            <if test="regNo !=null">Reg_No=#{regNo},</if>
+            <if test="idCardNo !=null">ID_Card_No=#{idCardNo},</if>
+            <if test="departmentName !=null">Department_Name=#{departmentName},</if>
+            <if test="regTime !=null">Reg_Time=#{regTime},</if>
+            <if test="docNo !=null">Doc_No=#{docNo},</if>
+            <if test="docName !=null">Doc_Name=#{docNo},</if>
+            <if test="painPart !=null">Pain_Part=#{painPart},</if>
+            <if test="regResult !=null">Reg_Result=#{regResult},</if>
+            <if test="drugInfor !=null">Drug_Infor=#{drugInfor},</if>
+            <if test="inHosp !=null">In_Hosp=#{inHosp},</if>
+            <if test="reCheck !=null">Re_Check=#{reCheck}</if>
+        </set>
+        where MR_No=#{mrNo}
+    </update>
+    <update id="updateTableColumn" >
+        update ${table} set ${column}=#{value} where MR_No=#{mrNo}
+    </update>
+
+
+    <insert id="insertBasicInfor" parameterType="BasicInfor">
+        insert into Basic_Infor (MR_No,P_Name,ID_Card_No,sex,age,Ph_No,nation,address,marriage)
+        values (#{mrNo},#{pName},#{idCardNo},#{sex},#{age},#{phNo},#{nation},#{address},#{marriage})
+    </insert>
+    <insert id="insertCheckBlood" parameterType="CheckBlood">
+        insert into Check_Blood (MR_No,P_Name,White_Blood_Cell_Count,Lymphocyte_Count,Hemoglobin_Count,Blood_Platelet_Count)
+        values (#{mrNo},#{pName},#{whiteBloodCellCount},#{lymphocyteCount},#{hemoglobinCount},#{bloodPlateletCount})
+    </insert>
+    <insert id="insertCheckEye" parameterType="CheckEye">
+        insert into Check_Eye (MR_No,P_Name,Left_Vision,Right_Vision,Left_Cor_Vision,Right_Cor_Vision,IOP)
+        values (#{mrNo},#{pName},#{leftVision},#{rightVision},#{leftCorVision},#{rightCorVision},#{iop})
+    </insert>
+    <insert id="insertCheckPressure" parameterType="CheckPressure">
+        insert into Check_Pressure (MR_No,P_Name,High_Pressure,Low_Pressure,Pulse)
+        values (#{mrNo},#{pName},#{highPressure},#{lowPressure},#{pulse})
+    </insert>
+    <insert id="insertCheckProjInfor" parameterType="CheckProjInfor">
+        insert into CheckProj_Infor (MR_No,P_Name,Proj_No,Doc_No,Doc_Name,Proj_Name,Check_Time,Check_cost)
+        values (#{mrNo},#{pName},#{projNo},#{docNo},#{docName},#{projName},#{checkTime},#{checkCost})
+    </insert>
+    <insert id="insertHospitalInform" parameterType="HospitalInform">
+        insert into Hospital_Inform (MR_No,P_Name,InHosp_Time,Department_Name,Doc_No,Doc_Name,Bed_No,Treatment_Recor,OutHosp_Time)
+        values (#{mrNo},#{pName},#{inHospTime},#{departmentName},#{docNo},#{docName},#{bedNo},#{treatmentRecor},#{outHospTime})
+    </insert>
+    <insert id="insertImageInfor" parameterType="ImageInfor">
+        insert into Image_Infor (MR_No,P_Name,Department_Name,Image_ID,Image_Type,Image_Time,Image_Part)
+        values (#{mrNo},#{pName},#{departmentName},#{imageId},#{imageType},#{imageTime},#{imagePart})
+    </insert>
+    <insert id="insertImageScreeningInfor" parameterType="ImageScreeningInfor">
+        insert into ImageScreening_Infor (MR_No,P_Name,Image_ID,Image_Type,Image_Part,Algorithm_Name,ScreeningTask_Name,Screening_Result)
+        values (#{mrNo},#{pName},#{imageId},#{imageType},#{imagePart},#{algorithmName},#{screeningTaskName},#{screeningResult})
+    </insert>
+    <insert id="insertRegistrationInfor" parameterType="RegistrationInfor">
+        insert into Registration_Infor (MR_No,P_Name,Reg_No,ID_Card_No,Department_Name,Reg_Time,Doc_No,Doc_Name,Pain_Part,Reg_Result,Drug_Infor,In_Hosp,Re_Check)
+        values (#{mrNo},#{pName},#{regNo},#{idCardNo},#{departmentName},#{regTime},#{docNo},#{docName},#{painPart},#{regResult},#{drugInfor},#{inHosp},#{reCheck})
+    </insert>
+
+    <delete id="deleteTableRow" >
+        delete from ${table} where ${column}=#{value}
+    </delete>
+
+    <select id="selectColumnNames" resultType="String">
+        select name from sys.columns where [object_id]=object_id(${table})
+    </select>
+
+    <select id="selectTableNames" resultType="String">
+        select name from sys.objects where type='u' order by name
+    </select>
+    
+    <update id="dropTable">
+        drop table ${table}
+    </update>
+
+
+
+
+    
+    
+
+    
+
+
+
+</mapper>
