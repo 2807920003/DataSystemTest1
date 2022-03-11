@@ -106,8 +106,6 @@ public class MimicImport {
             hospitalInform.setOutHospTime(csvReader.get(""));//引号里放mimic字段，此处对应HospitalInform的outHospTime字段。
             new HospitalInformDao().insertHospitalInform(hospitalInform);
 
-
-
         }
 
     }
