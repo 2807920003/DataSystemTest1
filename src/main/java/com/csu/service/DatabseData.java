@@ -6,10 +6,15 @@ import com.csu.dao.UniversalDao;
 public class DatabseData {
     public static Object[][] getAllTableName(){
         String [] strings= new UniversalDao().selectTableNames();
+
+
         Object [][] objects=new Object[strings.length-1][1];
+        int j=0;
         for(int i=0;i<strings.length;i++){
+
             if(!strings[i].equals("sysdiagrams")){
-                objects[i][0]=strings[i];
+                objects[j][0]=strings[i];
+                j++;
             }
         }
         return objects;

@@ -47,13 +47,35 @@ public interface SqlMapper {
 
 
 
-
-
     void updateTableColumn(@Param("table") String table,@Param("column") String column,@Param("value") String value,@Param("mrNo") String mrNO);
     void deleteTableRow(@Param("table") String table,@Param("column") String column,@Param("value") String value);
     String[] selectColumnNames(@Param("table") String table);
     String[] selectTableNames();
     void dropTable(@Param("table")String table);
+
+//    mimic操作内容
+    List<Admissions> selectAllAdmissions();
+    List<Patients> selectAllPatients();
+    List<Procedureevents> selectAllProcedureevents();
+    List<Transfers> selectAllTransfers();
+    List<Admissions> selectAdmissionsById(int subjectId);
+    List<Patients> selectPatientsById(int subjectId);
+    List<Procedureevents> selectProcedureeventsById(int subjectId);
+    List<Transfers> selectTransfersById(int subjectId);
+    void updateAdmissionsById(Admissions admissions);
+    void updatePatientsById(Patients patients);
+    void updateProcedureeventsById(Procedureevents procedureevents);
+    void updateTransfersById(Transfers transfers);
+    void insertAdmissions(Admissions admissions);
+    void insertPatients(Patients patients);
+    void insertProcedureevents(Procedureevents procedureevents);
+    void insertTransfers(Transfers transfers);
+
+
+
+
+
+
 
 
 

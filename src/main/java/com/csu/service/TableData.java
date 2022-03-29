@@ -53,6 +53,23 @@ public class TableData {
                 classname="com.csu.entity.RegistrationInfor";
                 list=new RegistrationInforDao().selectAllRegistrationInfor();
                 break;
+//                mimic
+            case "admissions":
+                classname="com.csu.entity.Admissions";
+                list=new AdmissionsDao().selectAllAdmissions();
+                break;
+            case "patients":
+                classname="com.csu.entity.Patients";
+                list=new PatientsDao().selectAllPatients();
+                break;
+            case "procedureevents":
+                classname="com.csu.entity.Procedureevents";
+                list=new ProcedureeventsDao().selectAllProcedureevents();
+                break;
+            case "transfers":
+                classname="com.csu.entity.Transfers";
+                list=new TransfersDao().selectAllTransfers();
+                break;
             default:
                 return null;
         }
@@ -107,6 +124,23 @@ public class TableData {
                 entityClass=new RegistrationInfor();
                 daoClass=new RegistrationInforDao();
                 break;
+//                mimic
+            case "admissions":
+                entityClass=new Admissions();
+                daoClass=new AdmissionsDao();
+                break;
+            case "patients":
+                entityClass=new Patients();
+                daoClass=new PatientsDao();
+                break;
+            case "procedureevents":
+                entityClass=new Procedureevents();
+                daoClass=new ProcedureeventsDao();
+                break;
+            case "transfers":
+                entityClass=new Transfers();
+                daoClass=new TransfersDao();
+                break;
             default:
         }
         Class c=entityClass.getClass();
@@ -146,9 +180,6 @@ public class TableData {
                 error.add(i);
                 e.printStackTrace();
             }
-
-
-
 
 
         }
@@ -291,6 +322,24 @@ public class TableData {
                 classname="com.csu.entity.RegistrationInfor";
                 list=new RegistrationInforDao().selectRegistrationInforById(mrNo);
                 break;
+//                mimic:
+            case "admissions":
+                classname="com.csu.entity.Admissions";
+                list=new AdmissionsDao().selectAdmissionsById(Integer.parseInt(mrNo));
+                break;
+            case "patients":
+                classname="com.csu.entity.Patients";
+                list=new PatientsDao().selectPatientsById(Integer.parseInt(mrNo));
+                break;
+            case "procedureevents":
+                classname="com.csu.entity.Procedureevents";
+                list=new ProcedureeventsDao().selectProcedureeventsById(Integer.parseInt(mrNo));
+                break;
+            case "transfers":
+                classname="com.csu.entity.Transfers";
+                list=new TransfersDao().selectTransfersById(Integer.parseInt(mrNo));
+                break;
+
             default:
                 return null;
         }

@@ -345,13 +345,193 @@
         drop table ${table}
     </update>
 
+<!--    mimic-->
+    <resultMap id="AdmissionsResult" type="Admissions">
+        <result column="subject_id" property="subjectId"/>
+        <result column="hadm_id" property="hadmId"/>
+        <result column="admittime" property="admittime"/>
+        <result column="dischtime" property="dischtime"/>
+        <result column="deathtime" property="deathtime"/>
+        <result column="admission_type" property="admissionType"/>
+        <result column="admission_location" property="admissionLocation"/>
+        <result column="discharge_location" property="dischargeLocation"/>
+        <result column="insurance" property="insurance"/>
+        <result column="language" property="language"/>
+        <result column="marital_status" property="maritalStatus"/>
+        <result column="ethnicity" property="ethnicity"/>
+        <result column="edregtime" property="edregtime"/>
+        <result column="edouttime" property="edouttime"/>
+        <result column="hospital_expire_flag" property="hospitalExpireFlag"/>
+    </resultMap>
+    <select id="selectAllAdmissions" resultMap="AdmissionsResult">
+        select top(1000) * from admissions
+    </select>
+    <resultMap id="PatientsResult" type="Patients">
+        <result column="subject_id" property="subjectId"/>
+        <result column="gender" property="gender"/>
+        <result column="anchor_age" property="anchorAge"/>
+        <result column="anchor_year" property="anchorYear"/>
+        <result column="anchor_year_group" property="anchorYearGroup"/>
+        <result column="dod" property="dod"/>
+    </resultMap>
+    <select id="selectAllPatients" resultMap="PatientsResult">
+        select top(1000) * from patients
+    </select>
+    <resultMap id="ProcedureeventsResult" type="Procedureevents">
+        <result column="subject_id" property="subjectId"/>
+        <result column="hadm_id" property="hadmId"/>
+        <result column="stay_id" property="stayId"/>
+        <result column="starttime" property="starttime"/>
+        <result column="endtime" property="endtime"/>
+        <result column="storetime" property="storetime"/>
+        <result column="itemid" property="itemid"/>
+        <result column="value" property="value"/>
+        <result column="valueuom" property="valueuom"/>
+        <result column="location" property="location"/>
+        <result column="locationcategory" property="locationcategory"/>
+        <result column="orderid" property="orderid"/>
+        <result column="linkorderid" property="linkorderid"/>
+        <result column="ordercategoryname" property="ordercategoryname"/>
+        <result column="secondaryordercategoryname" property="secondaryordercategoryname"/>
+        <result column="ordercategorydescription" property="ordercategorydescription"/>
+        <result column="patientweight" property="patientweight"/>
+        <result column="totalamount" property="totalamount"/>
+        <result column="totalamountuom" property="totalamountuom"/>
+        <result column="isopenbag" property="isopenbag"/>
+        <result column="continueinnextdept" property="continueinnextdept"/>
+        <result column="cancelreason" property="cancelreason"/>
+        <result column="statusdescription" property="statusdescription"/>
+        <result column="comments_date" property="commentsDate"/>
+        <result column="originalamount" property="originalamount"/>
+        <result column="originalrate" property="originalrate"/>
+    </resultMap>
+    <select id="selectAllProcedureevents" resultMap="ProcedureeventsResult">
+        select top(1000) * from  procedureevents
+    </select>
+    <resultMap id="TransfersResult" type="Transfers">
+        <result column="subject_id" property="subjectId"/>
+        <result column="hadm_id" property="hadmId"/>
+        <result column="transfer_id" property="transferId"/>
+        <result column="eventtype" property="eventtype"/>
+        <result column="careunit" property="careunit"/>
+        <result column="intime" property="intime"/>
+        <result column="outtime" property="outtime"/>
+    </resultMap>
+    <select id="selectAllTransfers" resultMap="TransfersResult">
+        select top(1000) * from  transfers
+    </select>
+    <select id="selectAdmissionsById" resultMap="AdmissionsResult">
+        select * from admissions where subject_id=#{subjectId}
+    </select>
+    <select id="selectPatientsById" resultMap="PatientsResult">
+        select * from patients where subject_id=#{subjectId}
+    </select>
+    <select id="selectProcedureeventsById" resultMap="ProcedureeventsResult">
+        select * from procedureevents where subject_id=#{subjectId}
+    </select>
+    <select id="selectTransfersById" resultMap="TransfersResult">
+        select * from transfers where subject_id=#{subjectId}
+    </select>
 
+    <update id="updateAdmissionsById" parameterType="Admissions">
+        update admissions
+        <set>
+            <!--            <if test="MR_No !=null">MR_No=#{mrNo},</if>-->
+<!--            <if test="subjectId !=null">subject_id=#{subjectId},</if>-->
+            <if test="hadmId !=null">hadm_id=#{hadmId},</if>
+            <if test="admittime !=null">admittime=#{admittime},</if>
+            <if test="dischtime !=null">deathtime=#{dischtime},</if>
+            <if test="deathtime !=null">deathtime=#{deathtime},</if>
+            <if test="admissionType !=null">admission_type=#{admissionType},</if>
+            <if test="admissionLocation !=null">admission_location=#{admissionLocation},</if>
+            <if test="dischargeLocation !=null">discharge_location=#{dischargeLocation}</if>
+            <if test="insurance !=null">insurance=#{insurance},</if>
+            <if test="language !=null">language=#{language},</if>
+            <if test="maritalStatus !=null">marital_status=#{maritalStatus},</if>
+            <if test="ethnicity !=null">ethnicity=#{ethnicity},</if>
+            <if test="edregtime !=null">edregtime=#{edregtime},</if>
+            <if test="edouttime !=null">edouttime=#{edouttime},</if>
+            <if test="hospitalExpireFlag !=null">hospital_expire_flag=#{hospitalExpireFlag}</if>
+        </set>
+        where subject_id=#{subjectId}
+    </update>
+    <update id="updatePatientsById" parameterType="Patients">
+        update admissions
+        <set>
+            <!--            <if test="MR_No !=null">MR_No=#{mrNo},</if>-->
+            <!--            <if test="subjectId !=null">subject_id=#{subjectId},</if>-->
+            <if test="gender !=null">gender=#{gender},</if>
+            <if test="anchorAge !=null">anchor_age=#{anchorAge},</if>
+            <if test="anchorYear !=null">anchor_year=#{anchorYear},</if>
+            <if test="anchorYearGroup !=null">anchor_year_group=#{anchorYearGroup},</if>
+            <if test="dod !=null">dod=#{dod}</if>
+        </set>
+        where subject_id=#{subjectId}
+    </update>
+    <update id="updateProcedureeventsById" parameterType="Procedureevents">
+        update admissions
+        <set>
+            <!--            <if test="MR_No !=null">MR_No=#{mrNo},</if>-->
+            <!--            <if test="subjectId !=null">subject_id=#{subjectId},</if>-->
+            <if test="hadmId !=null">hadm_id=#{hadmId},</if>
+            <if test="stayId !=null">stay_id=#{stayId},</if>
+            <if test="starttime !=null">starttime=#{starttime},</if>
+            <if test="endtime !=null">endtime=#{endtime},</if>
+            <if test="storetime !=null">storetime=#{storetime},</if>
+            <if test="itemid !=null">itemid=#{itemid},</if>
+            <if test="value !=null">value=#{value},</if>
+            <if test="valueuom !=null">valueuom=#{valueuom},</if>
+            <if test="location !=null">location=#{location},</if>
+            <if test="locationcategory !=null">locationcategory=#{locationcategory},</if>
+            <if test="orderid !=null">orderid=#{orderid},</if>
+            <if test="linkorderid !=null">linkorderid=#{linkorderid},</if>
+            <if test="ordercategoryname !=null">ordercategoryname=#{ordercategoryname},</if>
+            <if test="secondaryordercategoryname !=null">secondaryordercategoryname=#{secondaryordercategoryname},</if>
+            <if test="ordercategorydescription !=null">ordercategorydescription=#{ordercategorydescription},</if>
+            <if test="patientweight !=null">patientweight=#{patientweight},</if>
+            <if test="totalamount !=null">totalamount=#{totalamount},</if>
+            <if test="totalamountuom !=null">totalamountuom=#{totalamountuom},</if>
+            <if test="isopenbag !=null">isopenbag=#{isopenbag},</if>
+            <if test="continueinnextdept !=null">continueinnextdept=#{continueinnextdept},</if>
+            <if test="cancelreason !=null">cancelreason=#{cancelreason},</if>
+            <if test="statusdescription !=null">statusdescription=#{statusdescription},</if>
+            <if test="commentsDate !=null">comments_date=#{commentsDate},</if>
+            <if test="originalamount !=null">originalamount=#{originalamount},</if>
+            <if test="originalrate !=null">originalrate=#{originalrate}</if>
+        </set>
+        where subject_id=#{subjectId}
+    </update>
+    <update id="updateTransfersById" parameterType="Transfers">
+        update admissions
+        <set>
+            <!--            <if test="MR_No !=null">MR_No=#{mrNo},</if>-->
+            <!--            <if test="subjectId !=null">subject_id=#{subjectId},</if>-->
+            <if test="hadmId !=null">hadm_id=#{hadmId},</if>
+            <if test="transferId !=null">transfer_id=#{transferId},</if>
+            <if test="eventtype !=null">eventtype=#{eventtype},</if>
+            <if test="careunit !=null">careunit=#{careunit},</if>
+            <if test="intime !=null">intime=#{intime},</if>
+            <if test="outtime !=null">outtime=#{outtime}</if>
+        </set>
+        where subject_id=#{subjectId}
+    </update>
 
-
-    
-    
-
-    
+    <insert id="insertAdmissions" parameterType="Admissions">
+        insert into admissions (subject_id,hadm_id,admittime,dischtime,deathtime,admission_type,admission_location,discharge_location,insurance,language,marital_status,ethnicity,edregtime,edouttime,hospital_expire_flag)
+        values (#{subjectId},#{hadmId},#{admittime},#{dischtime},#{deathtime},#{admissionType},#{admissionLocation},#{dischargeLocation},#{insurance},#{language},#{maritalStatus},#{ethnicity},#{edregtime},#{edouttime},#{hospitalExpireFlag})
+    </insert>
+    <insert id="insertPatients" parameterType="Patients">
+        insert into patients (subject_id,gender,anchor_age,anchor_year,anchor_year_group,dod)
+        values (#{subjectId},#{gender},#{anchorAge},#{anchorYear},#{anchorYearGroup},#{dod})
+    </insert>
+    <insert id="insertProcedureevents" parameterType="Procedureevents">
+        insert into procedureevents (subject_id,hadm_id,stay_id,starttime,endtime,storetime,itemid,value,valueuom,location,locationcategory,orderid,linkorderid,ordercategoryname,secondaryordercategoryname,ordercategorydescription,patientweight,totalamount,totalamountuom,isopenbag,continueinnextdept,cancelreason,statusdescription,comments_date,originalamount,originalrate)
+        values (#{subjectId},#{hadmId},#{stayId},#{starttime},#{endtime},#{storetime},#{itemid},#{value},#{valueuom},#{location},#{locationcategory},#{orderid},#{linkorderid},#{ordercategoryname},#{secondaryordercategoryname},#{ordercategorydescription},#{patientweight},#{totalamount},#{totalamountuom},#{isopenbag},#{continueinnextdept},#{cancelreason},#{statusdescription},#{commentsDate},#{originalamount},#{originalrate})
+    </insert>
+    <insert id="insertTransfers" parameterType="Transfers">
+        insert into transfers (subject_id,hadm_id,transfer_id,eventtype,careunit,intime,outtime)
+        values (#{subjectId},#{hadmId},#{transferId},#{eventtype},#{careunit},#{intime},#{outtime})
+    </insert>
 
 
 

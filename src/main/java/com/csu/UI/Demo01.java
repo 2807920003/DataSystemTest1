@@ -28,7 +28,7 @@ public class Demo01 extends JFrame{
 	private JTable table = new JTable();
 	//构造函数
 	public Demo01() {
-		String url = "jdbc:sqlserver://43f53986v8.zicp.vip:15599;DatabaseName=demo";
+		String url = "jdbc:sqlserver:// 8.tcp.ngrok.io:18290;DatabaseName=demo";
 		 String user = "sa";
 		 String password = "csu123456.";
 		 
